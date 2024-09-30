@@ -37,6 +37,7 @@ function AccountOperations() {
   }
 
   function handlePayLoan() {
+    console.log("pay loan");
     dispatch(payLoan());
   }
 
@@ -96,7 +97,7 @@ function AccountOperations() {
         {currentLoan > 0 && (
           <div>
             <span>
-              Pay back ${currentLoan} ({currentLoanPurpose})
+              Pay back {currentLoan} ({currentLoanPurpose})
             </span>
             <button onClick={handlePayLoan}>Pay loan</button>
           </div>

@@ -1,7 +1,7 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
+// import { applyMiddleware, combineReducers, createStore } from "redux";
 import accountReducer from "./features/accounts/accountSlice";
 import customerReducer from "./features/customers/customerSlice";
-import { thunk } from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
 
 // const initialStateAccount = {
 //   balance: 0,
@@ -127,11 +127,23 @@ import { thunk } from "redux-thunk";
 // Redux Middleware using Thunk, npm i redux-thunk
 
 //// Combining the reducers
-const rootReducers = combineReducers({
-  account: accountReducer,
-  customer: customerReducer,
-});
+// const rootReducers = combineReducers({
+//   account: accountReducer,
+//   customer: customerReducer,
+// });
 
-const store = createStore(rootReducers, applyMiddleware(thunk));
+// const store = createStore(rootReducers, applyMiddleware(thunk));
+
+// export default store;
+
+////*****************************
+
+////********************************* Redux Toolkit
+const store = configureStore({
+  reducer: {
+    account: accountReducer,
+    customer: customerReducer,
+  },
+});
 
 export default store;
